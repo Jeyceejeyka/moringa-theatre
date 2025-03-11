@@ -1,0 +1,102 @@
+# Moringa Theater Audition Management System
+
+## Overview
+This project is a database-driven application for managing auditions at the Moringa Theater Company. It allows actors to audition for roles, with functionality to store and retrieve audition details, assign roles, and track hired actors.
+
+## Features
+- Create and manage **Roles**
+- Create and manage **Auditions**
+- Retrieve lists of roles, actors, and audition locations
+- Determine the lead and understudy for a role
+- Call back actors by changing their hired status
+
+## Technologies Used
+- **Python 3**
+- **SQLAlchemy** (ORM for database interaction)
+- **SQLite** (Database)
+- **Alembic** (For database migrations, optional)
+
+## Installation
+### Prerequisites
+Ensure you have Python and Pipenv installed.
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/moringa-theater.git
+   cd moringa-theater
+   ```
+
+2. Install dependencies:
+   ```sh
+   pipenv install
+   ```
+
+3. Activate the virtual environment:
+   ```sh
+   pipenv shell
+   ```
+
+4. Initialize the database:
+   ```sh
+   python main.py
+   ```
+
+## Project Structure
+```
+├── migrations/         # Alembic migrations (if used)
+├── models.py           # SQLAlchemy models for Role and Audition
+├── database.py         # Database connection setup
+├── crud.py             # Functions for CRUD operations
+├── main.py             # Entry point for running/testing the application
+├── Pipfile             # Pipenv dependencies file
+├── README.md           # Project documentation
+```
+
+## Usage
+### Running the Application
+To test and interact with the database, run:
+```sh
+python main.py
+```
+
+### Adding a Role
+```python
+from crud import add_role
+add_role("Hamlet")
+```
+
+### Adding an Audition
+```python
+from crud import add_audition
+add_audition("John Doe", "New York", 1234567890, 1)
+```
+
+### Fetching All Roles
+```python
+from crud import get_roles
+roles = get_roles()
+print(roles)
+```
+
+## Migrations (Optional)
+If using **Alembic** for database migrations:
+```sh
+pipenv install alembic
+alembic init migrations
+alembic revision --autogenerate -m "Initial migration"
+alembic upgrade head
+```
+
+## Contributing
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature-name`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature-name`)
+5. Open a Pull Request
+
+## License
+This project is licensed under the MIT License.
+
+## Contact
+For questions or contributions, contact [your-email@example.com]
+
