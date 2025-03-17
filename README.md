@@ -21,8 +21,8 @@ This project is a database-driven application for managing auditions at the Mori
 Ensure you have Python and Pipenv installed.
 
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/moringa-theater.git
+   ```bash
+   git clone https://github.com/[your-actual-username]/moringa-theater.git
    cd moringa-theater
    ```
 
@@ -36,9 +36,7 @@ Ensure you have Python and Pipenv installed.
    pipenv shell
    ```
 
-4. Initialize the database:
-   ```sh
-   python main.py
+
    ```
 
 ## Project Structure
@@ -61,14 +59,27 @@ python main.py
 
 ### Adding a Role
 ```python
+from models import Role
 from crud import add_role
-add_role("Hamlet")
+
+# Example of adding a role
+role = add_role("Hamlet")
+print(f"Added role: {role.name}")
 ```
 
 ### Adding an Audition
 ```python
+from models import Audition
 from crud import add_audition
-add_audition("John Doe", "New York", 1234567890, 1)
+
+# Example of adding an audition
+audition = add_audition(
+    actor_name="John Doe",
+    location="New York",
+    phone=1234567890,
+    role_id=1
+)
+print(f"Added audition for: {audition.actor_name}")
 ```
 
 ### Fetching All Roles
@@ -77,6 +88,11 @@ from crud import get_roles
 roles = get_roles()
 print(roles)
 ```
+
+### Testing
+To run the test suite:
+```bash
+python3 main.py```
 
 ## Migrations (Optional)
 If using **Alembic** for database migrations:
@@ -98,5 +114,5 @@ alembic upgrade head
 This project is licensed under the MIT License.
 
 ## Contact
-For questions or contributions, contact [your-email@example.com]
+For questions or contributions, contact [jeyceejeyka635@gmail.com]
 
